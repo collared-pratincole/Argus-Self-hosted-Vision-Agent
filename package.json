@@ -1,0 +1,59 @@
+{
+  "name": "aiir",
+  "version": "1.0.0",
+  "description": "识图智能体 — 极简视觉识别桌面应用（Electron 版）",
+  "main": "src/main.js",
+  "bin": {
+    "aiir": "src/cli.js"
+  },
+  "author": "AIIR Project",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "cli": "node src/cli.js",
+    "build-sea": "node scripts/build-sea.js",
+    "dist": "npm run build-sea && electron-builder --win nsis --publish never",
+    "dist:portable": "npm run build-sea && electron-builder --win portable --publish never"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest",
+    "esbuild": "latest",
+    "postject": "latest"
+  },
+  "build": {
+    "appId": "com.aiir.vision",
+    "productName": "AIIR",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "electronDist": "node_modules/electron/dist",
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ]
+    },
+    "extraResources": [
+      {
+        "from": "dist/aiir.exe",
+        "to": "aiir.exe"
+      }
+    ],
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AIIR",
+      "include": "installer/add-cli.nsh"
+    }
+  }
+}

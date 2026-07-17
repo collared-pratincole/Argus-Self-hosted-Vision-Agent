@@ -1,0 +1,62 @@
+# ── Node.js ──────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.pnp
+.pnp.js
+
+# ── 构建产物 ─────────────────────────────────────────────
+# Electron 打包输出
+release/
+# SEA 中间产物
+dist/
+# 旧 PyInstaller 构建产物
+build/
+
+# ── 缓存 ─────────────────────────────────────────────────
+.cache/
+.cache/electron/
+*.log
+.eslintcache
+
+# ── 运行时配置（含 API Key 明文，绝不提交）────────────────
+config.json
+**/config.json
+
+# ── Electron / 桌面应用运行时数据 ────────────────────────
+Local State
+
+# ── Python 旧版残留（JS 重构后已不用，但若本地保留源码会生成）──
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# ── 环境变量 / 密钥 ────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.key
+
+# ── IDE / 编辑器 ─────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ── 操作系统 ─────────────────────────────────────────────
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# ── 临时文件 ─────────────────────────────────────────────
+*.tmp
+*.temp
+*.bak
+*.orig
